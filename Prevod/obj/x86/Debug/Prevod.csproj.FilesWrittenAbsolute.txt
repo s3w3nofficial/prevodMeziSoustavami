@@ -1,0 +1,5 @@
+/home/pelda/Documents/Prevod/Prevod/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/pelda/Documents/Prevod/Prevod/bin/Debug/Prevod.exe.mdb
+/home/pelda/Documents/Prevod/Prevod/bin/Debug/Prevod.exe
+/home/pelda/Documents/Prevod/Prevod/obj/x86/Debug/Prevod.exe
+/home/pelda/Documents/Prevod/Prevod/obj/x86/Debug/Prevod.exe.mdb
