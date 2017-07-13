@@ -2,20 +2,20 @@
 
 namespace Prevod
 {
-	class MainClass
+	internal class MainClass
 	{
-		static string userinput0;
-		static string userinput1;
-		static string userinput2;
+		private static string _userinput0;
+		private static string _userinput1;
+		private static string _userinput2;
 
-		static string vysledek;
+		private static string _vysledek;
 
 		public static void Main (string[] args)
 		{
-			menu ();
+			Menu ();
 		}
 
-		public static void menu()
+		public static void Menu()
 		{
 			//Menu
 			Console.Clear();
@@ -25,7 +25,7 @@ namespace Prevod
 			Console.WriteLine ("(1) Desitkova");
 			Console.WriteLine ("(2) Sestnaskova");
 			Console.WriteLine (".....................................");
-			userinput0 = Console.ReadLine ();
+			_userinput0 = Console.ReadLine ();
 			Console.Clear ();
 			Console.WriteLine ("Zvolte do jake soustavi chcete prevadet");
 			Console.WriteLine (".....................................");
@@ -33,104 +33,104 @@ namespace Prevod
 			Console.WriteLine ("(1) Desitkova");
 			Console.WriteLine ("(2) Sestnaskova");
 			Console.WriteLine (".....................................");
-			userinput1 = Console.ReadLine ();
+			_userinput1 = Console.ReadLine ();
 			Console.Clear ();
 			Console.WriteLine (".....................................");
 			Console.WriteLine ("Zadejte Cislo ktere ma byt prevedeno");
 			Console.WriteLine (".....................................");
-			userinput2 = Console.ReadLine ();
+			_userinput2 = Console.ReadLine ();
 			Console.Clear ();
-			choase ();
+			Choase ();
 		}
 
-		public static void choase()
+		public static void Choase()
 		{
-			if (userinput0 == "0" && userinput1 == "0") {
+			if (_userinput0 == "0" && _userinput1 == "0") {
 				Console.WriteLine ("Zvolil jsi Kravinu");
 				Console.ReadKey ();
-				menu ();
-			} else if (userinput0 == "1" && userinput1 == "1") {
+				Menu ();
+			} else if (_userinput0 == "1" && _userinput1 == "1") {
 				Console.WriteLine ("Zvolil jsi Kravinu");
 				Console.ReadKey ();
-				menu ();
-			} else if (userinput0 == "2" && userinput1 == "2") {
+				Menu ();
+			} else if (_userinput0 == "2" && _userinput1 == "2") {
 				Console.WriteLine ("Zvolil jsi Kravinu");
 				Console.ReadKey ();
-				menu ();
-			} else if (userinput0 == "1" && userinput1 == "0") {
-				decimalToBinary (userinput2);
-				Console.WriteLine (vysledek);
+				Menu ();
+			} else if (_userinput0 == "1" && _userinput1 == "0") {
+				DecimalToBinary (_userinput2);
+				Console.WriteLine (_vysledek);
 				Console.ReadKey ();
-				menu ();
-			} else if (userinput0 == "0" && userinput1 == "1") {
-				binaryToDecimal (userinput2);
-				Console.WriteLine (vysledek);
+				Menu ();
+			} else if (_userinput0 == "0" && _userinput1 == "1") {
+				BinaryToDecimal (_userinput2);
+				Console.WriteLine (_vysledek);
 				Console.ReadKey ();
-				menu ();
-			} else if (userinput0 == "0" && userinput1 == "2") {
-				binaryToHexadecimal (userinput2);
-				Console.WriteLine (vysledek);
+				Menu ();
+			} else if (_userinput0 == "0" && _userinput1 == "2") {
+				BinaryToHexadecimal (_userinput2);
+				Console.WriteLine (_vysledek);
 				Console.ReadKey ();
-				menu ();
-			} else if (userinput0 == "2" && userinput1 == "0") {
-				hexadecimalToBinary (userinput2);
-				Console.WriteLine (vysledek);
+				Menu ();
+			} else if (_userinput0 == "2" && _userinput1 == "0") {
+				HexadecimalToBinary (_userinput2);
+				Console.WriteLine (_vysledek);
 				Console.ReadKey ();
-				menu ();
-			} else if (userinput0 == "1" && userinput1 == "2") {
-				decimalToHexadecimal (userinput2);
-				Console.WriteLine (vysledek);
+				Menu ();
+			} else if (_userinput0 == "1" && _userinput1 == "2") {
+				DecimalToHexadecimal (_userinput2);
+				Console.WriteLine (_vysledek);
 				Console.ReadKey ();
-				menu ();
-			} else if (userinput0 == "2" && userinput1 == "1") {
-				hexadecimalToDecimal (userinput2);
-				Console.WriteLine (vysledek);
+				Menu ();
+			} else if (_userinput0 == "2" && _userinput1 == "1") {
+				HexadecimalToDecimal (_userinput2);
+				Console.WriteLine (_vysledek);
 				Console.ReadKey ();
-				menu ();
+				Menu ();
 			}
 		}
 
-		public static void binaryToDecimal(string binary)
+		public static void BinaryToDecimal(string binary)
 		{
-			long otp = Convert.ToInt64 (binary, 2);
-			vysledek = otp.ToString ();
+			var otp = Convert.ToInt64 (binary, 2);
+			_vysledek = otp.ToString ();
 		}
 		//oprava
-		public static void binaryToHexadecimal(string binary)
+		public static void BinaryToHexadecimal(string binary)
 		{
-			string otp = Convert.ToInt32(binary , 2).ToString("X");
-			vysledek = otp;
+			var otp = Convert.ToInt32(binary , 2).ToString("X");
+			_vysledek = otp;
 		}
 
-		public static void decimalToBinary(string dec)
+		public static void DecimalToBinary(string dec)
 		{
-			string counter = "";
-			int n = Int32.Parse(dec);
+			var counter = "";
+			var n = int.Parse(dec);
 			while (n >= 1)
 			{
 				counter = (n % 2) + counter;
 				n = n / 2;
 			}
-			vysledek = counter.ToString();
+			_vysledek = counter;
 		}
 
-		public static void decimalToHexadecimal(string dec)
+		public static void DecimalToHexadecimal(string dec)
 		{
-			int tmp = Int32.Parse (dec);
-			vysledek = tmp.ToString("X");
+			var tmp = int.Parse (dec);
+			_vysledek = tmp.ToString("X");
 		}
 
-		public static void hexadecimalToBinary(string hex)
+		public static void HexadecimalToBinary(string hex)
 		{
-			hexadecimalToDecimal (hex);
-			string tmp = vysledek;
-			decimalToBinary (tmp);
+			HexadecimalToDecimal (hex);
+			var tmp = _vysledek;
+			DecimalToBinary (tmp);
 		}
 
-		public static void hexadecimalToDecimal(string hex)
+		public static void HexadecimalToDecimal(string hex)
 		{
-			string dec = Convert.ToInt32(hex, 16).ToString();
-			vysledek = dec;
+			var dec = Convert.ToInt32(hex, 16).ToString();
+			_vysledek = dec;
 		}
 
 	}
